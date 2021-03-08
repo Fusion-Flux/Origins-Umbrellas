@@ -16,20 +16,20 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class PlayerConditionsMixin {
 
     @Inject(method = "lambda$register$10", at = @At("HEAD"), cancellable = true)
-    private static void sunlightTHing(SerializableData.Instance data, PlayerEntity player, CallbackInfoReturnable<Boolean> cir) {
-        ItemStack itemStack1 = player.getEquippedStack(EquipmentSlot.MAINHAND);
-        ItemStack itemStack2 = player.getEquippedStack(EquipmentSlot.OFFHAND);
-        if(itemStack1.getItem().equals(UmbrellaItems.PUMBRELLA)||itemStack2.getItem().equals(UmbrellaItems.PUMBRELLA)){
-            cir.setReturnValue(false);
+    private static void sunDamagePrevention(SerializableData.Instance data, PlayerEntity player, CallbackInfoReturnable<Boolean> cir) {
+        for (ItemStack stack : player.getItemsHand()) {
+            if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() < stack.getMaxDamage() - 1) {
+                cir.setReturnValue(false);
+            }
         }
     }
 
     @Inject(method = "lambda$register$11", at = @At("HEAD"), cancellable = true)
-    private static void umbrellaRainedOnModification(SerializableData.Instance data, PlayerEntity player, CallbackInfoReturnable<Boolean> cir) {
-        ItemStack itemStack1 = player.getEquippedStack(EquipmentSlot.MAINHAND);
-        ItemStack itemStack2 = player.getEquippedStack(EquipmentSlot.OFFHAND);
-        if(itemStack1.getItem().equals(UmbrellaItems.UMBRELLA)||itemStack2.getItem().equals(UmbrellaItems.UMBRELLA)){
-            cir.setReturnValue(false);
+    private static void umbrellaRainedOn(SerializableData.Instance data, PlayerEntity player, CallbackInfoReturnable<Boolean> cir) {
+        for (ItemStack stack : player.getItemsHand()) {
+            if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() < stack.getMaxDamage() - 1) {
+                cir.setReturnValue(false);
+            }
         }
     }
 

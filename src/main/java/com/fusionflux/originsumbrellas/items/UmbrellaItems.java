@@ -12,13 +12,11 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class UmbrellaItems {
-    public static final UmbrellaDyeTest UMBRELLA = new UmbrellaDyeTest(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1));
-    public static final Item PUMBRELLA = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1));
+    public static final UmbrellaDyeTest UMBRELLA = new UmbrellaDyeTest(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1).maxDamage(1200));
 
 
     public static void registerItems() {
         Registry.register(Registry.ITEM, new Identifier(OriginsUmbrellas.MOD_ID, "umbrella"), UMBRELLA);
-        Registry.register(Registry.ITEM, new Identifier(OriginsUmbrellas.MOD_ID, "pumbrella"), PUMBRELLA);
 
     }
 

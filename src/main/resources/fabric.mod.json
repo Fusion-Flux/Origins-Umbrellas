@@ -3,17 +3,18 @@
   "id": "modid",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Origins: Umbrellas",
+  "description": "This is a mod that adds umbrellas to Origins that protect against the elements",
   "authors": [
-    "Me!"
+    "FusionFlux"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/origins-umbrellas",
+    "sources": "https://github.com/Fusion-Flux/Origins-Umbrellas",
+    "issues": "https://github.com/Fusion-Flux/Origins-Umbrellas/issues"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/originsumbrellas/icon.png",
 
   "environment": "*",
