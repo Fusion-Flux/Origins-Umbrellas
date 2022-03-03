@@ -1,8 +1,7 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "originsumbrellas",
   "version": "${version}",
-
   "name": "Origins: Umbrellas",
   "description": "This is a mod that adds umbrellas to Origins that protect against the elements",
   "authors": [
