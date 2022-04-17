@@ -13,11 +13,8 @@ import net.minecraft.util.registry.Registry;
 
 public class UmbrellaItems {
     public static final UmbrellaDyeTest UMBRELLA = new UmbrellaDyeTest(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1).maxDamage(1200));
-
-
     public static void registerItems() {
         Registry.register(Registry.ITEM, new Identifier(OriginsUmbrellas.MOD_ID, "umbrella"), UMBRELLA);
-
     }
 
     @Environment(EnvType.CLIENT)

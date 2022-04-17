@@ -4,7 +4,7 @@
   "package": "com.fusionflux.originsumbrellas.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "PlayerConditionsMixin",
+    "EntityConditionsMixin",
     "PlayerEntityMixin"
   ],
   "client": [

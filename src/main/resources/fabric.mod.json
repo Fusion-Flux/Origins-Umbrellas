@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "originsumbrellas",
   "version": "${version}",
 
   "name": "Origins: Umbrellas",
-  "description": "This is a mod that adds umbrellas to Origins that protect against the elements",
+  "description": "A umbrella mod for Origins",
   "authors": [
-    "FusionFlux"
+    "Fusion Flux"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/origins-umbrellas",
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/origins-umbrellas#c1",
     "sources": "https://github.com/Fusion-Flux/Origins-Umbrellas",
     "issues": "https://github.com/Fusion-Flux/Origins-Umbrellas/issues"
   },
@@ -33,7 +33,7 @@
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",
-    "minecraft": "1.16.x"
+    "minecraft": "1.17.x"
   },
   "suggests": {
     "another-mod": "*"
