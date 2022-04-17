@@ -10,6 +10,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.EnderChestInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tag.BiomeTags;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import org.spongepowered.asm.mixin.Final;
@@ -51,31 +52,31 @@ public abstract class PlayerEntityMixin extends Entity {
 			for(int current=0;current<36;current++) {
 					ItemStack stack = this.inventory.getStack(current);
 					if(current != this.inventory.selectedSlot)
-					if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() <= stack.getMaxDamage() - 1&&!(this.world.getBiome( this.getBlockPos() ).getCategory().equals( Biome.Category.DESERT )||this.world.getBiome( this.getBlockPos() ).getCategory().equals( Biome.Category.NETHER ))) {
+					if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() <= stack.getMaxDamage() - 1&&!(Biome.getCategory(world.getBiome(this.getBlockPos())).equals(Biome.Category.DESERT)||world.getBiome(this.getBlockPos()).isIn(BiomeTags.IS_NETHER))) {
 						stack.damage(-1, (LivingEntity) (Object) this, ((livingEntity) -> {
 						}));
 					}
 					if(current != this.inventory.selectedSlot)
-						if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() <= stack.getMaxDamage() - 1&&(this.world.getBiome( this.getBlockPos() ).getCategory().equals( Biome.Category.DESERT )||this.world.getBiome( this.getBlockPos() ).getCategory().equals( Biome.Category.NETHER ))) {
+						if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() <= stack.getMaxDamage() - 1&&(Biome.getCategory(world.getBiome(this.getBlockPos())).equals(Biome.Category.DESERT)||world.getBiome(this.getBlockPos()).isIn(BiomeTags.IS_NETHER))) {
 							stack.damage(-2, (LivingEntity) (Object) this, ((livingEntity) -> {
 							}));
 						}
 					if(current == this.inventory.selectedSlot)
-					if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() <= stack.getMaxDamage() - 1&&!(this.world.getBiome( this.getBlockPos() ).getCategory().equals( Biome.Category.DESERT )||this.world.getBiome( this.getBlockPos() ).getCategory().equals( Biome.Category.NETHER ))) {
+					if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() <= stack.getMaxDamage() - 1&&!(Biome.getCategory(world.getBiome(this.getBlockPos())).equals(Biome.Category.DESERT)||world.getBiome(this.getBlockPos()).isIn(BiomeTags.IS_NETHER))) {
 						stack.damage(-2, (LivingEntity) (Object) this, ((livingEntity) -> {
 						}));
 					}
 					if(current == this.inventory.selectedSlot)
-					if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() <= stack.getMaxDamage() - 1&&(this.world.getBiome( this.getBlockPos() ).getCategory().equals( Biome.Category.DESERT )||this.world.getBiome( this.getBlockPos() ).getCategory().equals( Biome.Category.NETHER ))) {
+					if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() <= stack.getMaxDamage() - 1&&(Biome.getCategory(world.getBiome(this.getBlockPos())).equals(Biome.Category.DESERT)||world.getBiome(this.getBlockPos()).isIn(BiomeTags.IS_NETHER))) {
 						stack.damage(-3, (LivingEntity) (Object) this, ((livingEntity) -> {
 						}));
 					}
 			}
-			if (offHand.getItem().equals(UmbrellaItems.UMBRELLA) && offHand.getDamage() <= offHand.getMaxDamage() - 1 && !(this.world.getBiome( this.getBlockPos() ).getCategory().equals( Biome.Category.DESERT )||this.world.getBiome( this.getBlockPos() ).getCategory().equals( Biome.Category.NETHER ))) {
+			if (offHand.getItem().equals(UmbrellaItems.UMBRELLA) && offHand.getDamage() <= offHand.getMaxDamage() - 1 && !(Biome.getCategory(world.getBiome(this.getBlockPos())).equals(Biome.Category.DESERT)||world.getBiome(this.getBlockPos()).isIn(BiomeTags.IS_NETHER))) {
 				offHand.damage(-2, (LivingEntity) (Object) this, ((livingEntity) -> {
 				}));
 			}
-			if (offHand.getItem().equals(UmbrellaItems.UMBRELLA) && offHand.getDamage() <= offHand.getMaxDamage() - 1 && (this.world.getBiome( this.getBlockPos() ).getCategory().equals( Biome.Category.DESERT )||this.world.getBiome( this.getBlockPos() ).getCategory().equals( Biome.Category.NETHER ))) {
+			if (offHand.getItem().equals(UmbrellaItems.UMBRELLA) && offHand.getDamage() <= offHand.getMaxDamage() - 1 && (Biome.getCategory(world.getBiome(this.getBlockPos())).equals(Biome.Category.DESERT)||world.getBiome(this.getBlockPos()).isIn(BiomeTags.IS_NETHER))) {
 				offHand.damage(-3, (LivingEntity) (Object) this, ((livingEntity) -> {
 				}));
 			}
