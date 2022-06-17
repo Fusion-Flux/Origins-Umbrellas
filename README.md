@@ -1,4 +1,4 @@
-# Fabric Example Mod
+# Origins Umbrellas
 
 ## Origins
 This is an addon to the origins mod, https://modrinth.com/mod/origins, so it requires origins
