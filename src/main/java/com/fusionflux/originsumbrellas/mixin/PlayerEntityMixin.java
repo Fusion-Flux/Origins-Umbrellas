@@ -30,21 +30,11 @@ import java.util.Random;
 public abstract class PlayerEntityMixin extends Entity {
 
 
-    @Shadow
-    public abstract ItemStack getEquippedStack(EquipmentSlot slot);
+//     @Shadow
+//     public abstract ItemStack getEquippedStack(EquipmentSlot slot);
 
     @Shadow
     public abstract Iterable<ItemStack> getItemsHand();
-
-    @Shadow
-    @Final
-    public PlayerInventory inventory;
-
-    @Shadow
-    protected EnderChestInventory enderChestInventory;
-
-    @Shadow
-    protected boolean isSubmergedInWater;
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -57,7 +47,7 @@ public abstract class PlayerEntityMixin extends Entity {
         // check can biome precip and is raining and is sky visible
 
         if (inDaylight || ((EntityAccessor) this).callIsBeingRainedOn() && this.age % 50 == 0)
-            for (ItemStack stack : this.getItemsHand())
+            for (ItemStack stack : this.getItemsHand()) // does not check headslot? if that is something u want to add
                 if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() < stack.getMaxDamage() - 1) {
                     stack.damage(1, (LivingEntity) (Object) this, ((livingEntity) -> {
                     }));
