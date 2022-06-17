@@ -6,13 +6,12 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.DyeableItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class UmbrellaItems {
-    public static final UmbrellaDyeTest UMBRELLA = new UmbrellaDyeTest(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1).maxDamage(1200));
+    public static final DyeableUmbrellaItem UMBRELLA = new DyeableUmbrellaItem(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1).maxDamage(1200));
 
 
     public static void registerItems() {
@@ -24,5 +23,4 @@ public class UmbrellaItems {
     public static void registerRenderLayers() {
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), UmbrellaItems.UMBRELLA);
     }
-
 }
