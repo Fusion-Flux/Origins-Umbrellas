@@ -33,7 +33,7 @@
   "depends": {
     "fabricloader": "*",
     "fabric": "*",
-    "minecraft": "*"
+    "minecraft": "1.19.x"
   },
   "suggests": {
     "origins": ">=1.6.1"
