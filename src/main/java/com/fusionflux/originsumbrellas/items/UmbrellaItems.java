@@ -12,7 +12,7 @@ import net.minecraft.util.registry.Registry;
 
 public class UmbrellaItems {
     public static final DyeableUmbrellaItem UMBRELLA = new DyeableUmbrellaItem(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1).maxDamage(1200));
-    public static final DyeableUmbrellaItem NETHERITE_UMBRELLA = new DyeableUmbrellaItem(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1));
+    public static final DyeableUmbrellaItem NETHERITE_UMBRELLA = new DyeableUmbrellaItem(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1).maxDamage(6000));
 
 
     public static void registerItems() {
@@ -23,6 +23,9 @@ public class UmbrellaItems {
 
     @Environment(EnvType.CLIENT)
     public static void registerRenderLayers() {
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), UmbrellaItems.UMBRELLA);
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), UMBRELLA);
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), NETHERITE_UMBRELLA);
     }
+
+
 }

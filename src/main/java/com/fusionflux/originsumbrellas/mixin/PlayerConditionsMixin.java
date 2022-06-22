@@ -15,21 +15,19 @@ public class PlayerConditionsMixin {
 
     @Inject(method = "lambda$register$10", at = @At("HEAD"), cancellable = true)
     private static void sunDamagePrevention(SerializableData.Instance data, Entity player, CallbackInfoReturnable<Boolean> cir) {
-        for (ItemStack stack : player.getItemsHand()) {
-            if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() < stack.getMaxDamage() - 1) {
-                cir.setReturnValue(false);
-            }
-        }
+        if (isHoldingUmbrella(player)) cir.setReturnValue(false);
     }
 
     @Inject(method = "lambda$register$11", at = @At("HEAD"), cancellable = true)
     private static void umbrellaRainedOn(SerializableData.Instance data, Entity player, CallbackInfoReturnable<Boolean> cir) {
-        for (ItemStack stack : player.getItemsHand()) {
-            if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() < stack.getMaxDamage() - 1) {
-                cir.setReturnValue(false);
-            }
-        }
+        if (isHoldingUmbrella(player)) cir.setReturnValue(false);
     }
 
 
+    private static boolean isHoldingUmbrella(Entity player) {
+        for (ItemStack stack : player.getItemsHand())
+            if (stack.getItem().equals(UmbrellaItems.UMBRELLA))
+                return true;
+        return false;
+    }
 }
