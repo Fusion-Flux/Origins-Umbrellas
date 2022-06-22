@@ -12,10 +12,12 @@ import net.minecraft.util.registry.Registry;
 
 public class UmbrellaItems {
     public static final DyeableUmbrellaItem UMBRELLA = new DyeableUmbrellaItem(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1).maxDamage(1200));
+    public static final DyeableUmbrellaItem NETHERITE_UMBRELLA = new DyeableUmbrellaItem(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1));
 
 
     public static void registerItems() {
         Registry.register(Registry.ITEM, new Identifier(OriginsUmbrellas.MOD_ID, "umbrella"), UMBRELLA);
+        Registry.register(Registry.ITEM, new Identifier(OriginsUmbrellas.MOD_ID, "netherite_umbrella"), NETHERITE_UMBRELLA);
 
     }
 

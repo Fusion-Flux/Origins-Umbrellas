@@ -46,11 +46,10 @@ public abstract class PlayerEntityMixin extends Entity {
         boolean inDaylight = world.getDimensionKey().equals(DimensionTypes.OVERWORLD) && this.world.isDay() && this.world.isSkyVisible(this.getBlockPos());
         // check can biome precip and is raining and is sky visible
 
-        if (inDaylight || ((EntityAccessor) this).callIsBeingRainedOn() && this.age % 50 == 0)
+        if (inDaylight || ((EntityAccessor) this).callIsBeingRainedOn() && this.age % 100 == 0)
             for (ItemStack stack : this.getItemsHand()) // does not check headslot? if that is something u want to add
                 if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() < stack.getMaxDamage() - 1) {
-                    stack.damage(1, (LivingEntity) (Object) this, ((livingEntity) -> {
-                    }));
+                    stack.setDamage(stack.getDamage()+1);
                     break; // if offhanding 2 dont break 2 umbrellas
                 }
 
