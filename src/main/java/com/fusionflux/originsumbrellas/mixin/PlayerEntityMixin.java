@@ -35,7 +35,7 @@ public abstract class PlayerEntityMixin extends Entity {
         boolean inDaylight = world.getDimensionKey().equals(DimensionTypes.OVERWORLD) && this.world.isDay() && this.world.isSkyVisible(this.getBlockPos());
         // check can biome precip and is raining and is sky visible
 
-        if ((inDaylight || ((EntityAccessor) this).callIsBeingRainedOn()) && this.age % 100 == 0)
+        if ((inDaylight || ((EntityAccessor) this).callIsBeingRainedOn()) && this.age % 500 == 0)
             for (ItemStack stack : this.getItemsHand())
                 if (stack.getItem().equals(UmbrellaItems.UMBRELLA)) {
                     stack.setDamage(stack.getDamage() + 1);
