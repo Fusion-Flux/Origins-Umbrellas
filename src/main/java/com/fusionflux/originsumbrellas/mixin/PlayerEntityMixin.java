@@ -37,7 +37,7 @@ public abstract class PlayerEntityMixin extends Entity {
 
         if ((inDaylight || ((EntityAccessor) this).callIsBeingRainedOn()) && this.age % 500 == 0)
             for (ItemStack stack : this.getItemsHand())
-                if (stack.getItem().equals(UmbrellaItems.UMBRELLA)) {
+                if (stack.isIn(UmbrellaItems.UMBRELLA_TAG)) {
                     stack.setDamage(stack.getDamage() + 1);
                     break; // if offhanding 2 dont break 2 umbrellas
                 }
