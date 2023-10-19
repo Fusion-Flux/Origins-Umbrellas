@@ -18,14 +18,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends Entity {
-    @Shadow
-    public abstract ItemStack getEquippedStack(EquipmentSlot slot);
 
-    @Shadow
-    public abstract Iterable<ItemStack> getItemsHand();
+    @Shadow abstract ItemStack getEquippedStack(EquipmentSlot slot);
 
-    @Shadow
-    public abstract PlayerInventory getInventory();
+
+    @Shadow public abstract Iterable<ItemStack> getHandItems();
+
+
+    @Shadow abstract PlayerInventory getInventory();
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -36,7 +36,7 @@ public abstract class PlayerEntityMixin extends Entity {
         boolean isBeingRainedOn = ((EntityAccessor) this).callIsBeingRainedOn();
 
         if (isBeingRainedOn && this.age % 10 == 0) {
-            for (ItemStack stack : this.getItemsHand()) {
+            for (ItemStack stack : this.getHandItems()) {
                 if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() < stack.getMaxDamage() - 1) {
                     // Set damage instead of calling stack.damage, otherwise an animation is
                     // triggered for each damage tick.
@@ -45,7 +45,7 @@ public abstract class PlayerEntityMixin extends Entity {
             }
         } else if (!isBeingRainedOn && this.age % 20 == 0) {
             ItemStack offHand = this.getEquippedStack(EquipmentSlot.OFFHAND);
-            boolean isHot = world.getBiome(this.getBlockPos()).value().isHot(this.getBlockPos());
+            boolean isHot = getWorld().getBiome(this.getBlockPos()).value().isCold(this.getBlockPos());
 
             // Repair off-hand umbrella.
             this.repairStack(offHand, isHot, true);
