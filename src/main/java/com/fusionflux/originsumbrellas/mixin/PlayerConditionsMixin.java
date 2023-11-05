@@ -13,9 +13,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(EntityConditions.class)
 public class PlayerConditionsMixin {
 
-    @Inject(method = "lambda$register$10", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "lambda$register$9", at = @At("HEAD"), cancellable = true)
     private static void sunDamagePrevention(SerializableData.Instance data, Entity player, CallbackInfoReturnable<Boolean> cir) {
-        for (ItemStack stack : player.getItemsHand()) {
+        for (ItemStack stack : player.getHandItems()) {
             if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() < stack.getMaxDamage() - 1) {
                 cir.setReturnValue(false);
             }
@@ -24,7 +24,7 @@ public class PlayerConditionsMixin {
 
     @Inject(method = "lambda$register$11", at = @At("HEAD"), cancellable = true)
     private static void umbrellaRainedOn(SerializableData.Instance data, Entity player, CallbackInfoReturnable<Boolean> cir) {
-        for (ItemStack stack : player.getItemsHand()) {
+        for (ItemStack stack : player.getHandItems()) {
             if (stack.getItem().equals(UmbrellaItems.UMBRELLA) && stack.getDamage() < stack.getMaxDamage() - 1) {
                 cir.setReturnValue(false);
             }
