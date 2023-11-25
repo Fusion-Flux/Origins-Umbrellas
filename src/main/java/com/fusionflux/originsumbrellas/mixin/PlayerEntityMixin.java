@@ -45,7 +45,7 @@ public abstract class PlayerEntityMixin extends Entity {
             }
         } else if (!isBeingRainedOn && this.age % 20 == 0) {
             ItemStack offHand = this.getEquippedStack(EquipmentSlot.OFFHAND);
-            boolean isHot = getWorld().getBiome(this.getBlockPos()).value().isCold(this.getBlockPos());
+            boolean isHot = !(getWorld().getBiome(this.getBlockPos()).value().isCold(this.getBlockPos()));
 
             // Repair off-hand umbrella.
             this.repairStack(offHand, isHot, true);
