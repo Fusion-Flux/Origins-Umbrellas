@@ -22,17 +22,17 @@ import java.util.stream.StreamSupport;
 public abstract class EntityMixin {
 
 
-	@Shadow public World world;
+	@Shadow World world;
 
-	@Shadow public abstract BlockPos getBlockPos();
+	@Shadow abstract BlockPos getBlockPos();
 
-	@Shadow public abstract Box getBoundingBox();
+	@Shadow abstract Box getBoundingBox();
 
-	@Shadow public abstract Iterable<ItemStack> getItemsHand();
+	@Shadow abstract Iterable<ItemStack> getHandItems();
 
 	@Inject(method = "isBeingRainedOn", at = @At("HEAD"), cancellable = true)
 	private void isBeingRainedOn(CallbackInfoReturnable<Boolean> cir) {
-		Iterable<ItemStack> hands = this.getItemsHand();
+		Iterable<ItemStack> hands = this.getHandItems();
 		for (ItemStack stack : hands) {
 			if (stack.getItem() == UmbrellaItems.UMBRELLA)
 				cir.setReturnValue(false);
