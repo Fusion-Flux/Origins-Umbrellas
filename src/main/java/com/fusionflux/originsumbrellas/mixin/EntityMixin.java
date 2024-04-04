@@ -34,8 +34,10 @@ public abstract class EntityMixin {
 	private void isBeingRainedOn(CallbackInfoReturnable<Boolean> cir) {
 		Iterable<ItemStack> hands = this.getHandItems();
 		for (ItemStack stack : hands) {
-			if (stack.getItem() == UmbrellaItems.UMBRELLA)
+			if (stack.getItem() == UmbrellaItems.UMBRELLA) {
+				System.out.println("FUCK");
 				cir.setReturnValue(false);
+			}
 		}
 	}
 
