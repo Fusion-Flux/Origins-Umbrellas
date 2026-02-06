@@ -1,0 +1,22 @@
+[versions]
+# don't update loom on 1.20, since newer versions need newer java, which gets weird
+loom = "1.10.+"
+
+minecraft = "1.20.1"
+
+# https://fabricmc.net/develop
+loader = "0.18.4"
+fapi = "0.92.7+1.20.1"
+yarn = "1.20.1+build.10"
+
+[libraries]
+minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
+yarn = { module = "net.fabricmc:yarn", version.ref = "yarn" }
+loader = { module = "net.fabricmc:fabric-loader", version.ref = "loader" }
+fapi = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fapi" }
+
+[bundles]
+fabric = [ "loader", "fapi" ]
+
+[plugins]
+loom = { id = "fabric-loom", version.ref = "loom" }
