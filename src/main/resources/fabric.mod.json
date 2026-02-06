@@ -30,8 +30,10 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.14.23",
-    "fabric": "*"
+    "minecraft": ">=${minecraft_version}",
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": ">=${fapi_version}",
+    "origins": ">=${origins_version}"
   },
   "suggests": {
     "another-mod": "*"
